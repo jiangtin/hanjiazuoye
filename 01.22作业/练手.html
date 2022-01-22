@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="background-color: rgb(66, 180, 94);width: 20px;height: 30px;"></div>
+
+  <div style="background-color: rgb(236, 144, 144);width: 20px;height: 30px;"></div>
+  <div style="background-color: rgb(163, 58, 58);width: 20px;height: 30px;"></div>
+    <div style="background-color: rgb(110, 31, 31);width: 20px;height: 30px;">
+
+      function colorc(a,b){
+        // if(a<50){
+        //   b.style.backgroundColor="rgb(66, 180, 94)";
+        // }
+        // if(a<100&&a>50){
+        //   b.style.backgroundColor="rgb(218, 198, 14)";
+        // }
+        // if(a<150&&a>100){
+        //   b.style.backgroundColor="rgb(236, 144, 144)";
+        // }
+        // if(a<200&&a>150){
+        //   b.style.backgroundColor="rgb(163, 58, 58)";
+        // }
+        // if(a<300&&a>200){
+        //   b.style.backgroundColor="rgb(110, 31, 31)";
+        // }
+        // }
+
+
+
+
+    </div>
+  <script>
+     const xhr4=new XMLHttpRequest();
+    const air1=document.getElementById('air1');
+    xhr4.open('GET','https://devapi.qweather.com/v7/air/now?location='+city_id+'&key=9ef4a7e0a3f24541b8e7b5617a9a1ec1');
+    xhr4.send();
+    xhr4.onreadystatechange=function(){
+        if(xhr4.readyState===4){
+            if(xhr4.status>=200&&xhr4.status<300){
+                var obj4=JSON.parse(xhr4.response)
+                console.log(obj4);  
+               air1.innerHTML=obj4.now.api+'&nbsp'+obj4.now.category;
+               }
+            }
+            else{
+            console.log('wrong');
+            } }
+  </script>
+  
+</body>
+</html>
